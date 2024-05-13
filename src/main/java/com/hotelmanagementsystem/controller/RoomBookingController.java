@@ -29,6 +29,8 @@ public class RoomBookingController {
 		
 		
 		
+		
+		
 	session.setAttribute("bookingdetail", bookingroom);
 		m.addAttribute("rList", roomser.getAllRoom());
 		return "AvailabilRoomList";
