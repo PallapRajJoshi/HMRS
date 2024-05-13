@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Details Form</title>
+<!-- Bootstrap CSS -->
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	rel="stylesheet">
+</head>
+<body>
+	<th:block th:insert="Header.html"></th:block>
+
+	<div class="container mt-5">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<h1>[[${message}]]</h1>
+				<h2>Event Details Form</h2>
+				
+				<form enctype="multipart/form-data" method="post"
+					action="/addevents">
+					<div class="form-group">
+						<label for="event-image">Image Of Event</label> <input type="file"
+							class="form-control-file" id="event-image" name="event_img">
+					</div>
+
+
+
+
+					<div class="form-group">
+						<label for="type">Type Of Event</label> <input type="text"
+							class="form-control" id="type" name="event_type"
+							placeholder="Enter property type">
+					</div>
+
+					<div class="form-group">
+						<label for="type">Location</label> <input type="text"
+							class="form-control" id="type" name="event_location"
+							placeholder="Enter property type">
+					</div>
+					<div class="form-group">
+						<label for="event-date">Event Date</label>
+						<div class="input-group">
+							<input type="date" class="form-control" id="event-date"
+								name="event_date">
+							<div class="input-group-append"></div>
+						</div>
+					</div>
+
+
+
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap JS and dependencies (jQuery, Popper.js) -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

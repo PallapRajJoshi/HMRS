@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zxx" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>ApiNampa | Hotel</title>
+
+<!-- Google Font -->
+<link
+	href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap"
+	rel="stylesheet">
+
+<!-- Css Styles -->
+<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="/css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="/css/flaticon.css" type="text/css">
+<link rel="stylesheet" href="/css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="/css/nice-select.css" type="text/css">
+<link rel="stylesheet" href="/css/jquery-ui.min.css" type="text/css">
+<link rel="stylesheet" href="/css/magnific-popup.css" type="text/css">
+<link rel="stylesheet" href="/css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Offcanvas Menu Section Begin -->
+	<div class="offcanvas-menu-overlay"></div>
+	<div class="canvas-open">
+		<i class="icon_menu"></i>
+	</div>
+	<div class="offcanvas-menu-wrapper">
+		<div class="canvas-close">
+			<i class="icon_close"></i>
+		</div>
+		<div class="search-icon  search-switch">
+			<i class="icon_search"></i>
+		</div>
+		<div class="header-configure-area">
+			<div class="language-option">
+				<img src="/img/flag.jpg" alt=""> <span>EN <i
+					class="fa fa-angle-down"></i></span>
+				<div class="flag-dropdown">
+					<ul>
+						<li><a href="#">Zi</a></li>
+						<li><a href="#">Fr</a></li>
+					</ul>
+				</div>
+			</div>
+			<a href="#" class="bk-btn">Booking Now</a>
+		</div>
+		<nav class="mainmenu mobile-menu">
+			<ul>
+				<li class="active"><a href="/index">Home</a></li>
+				<li><a href="/rooms">Rooms</a></li>
+				<li><a href="/about-us">About Us</a></li>
+				<li><a href="/pages">Pages</a>
+					<ul class="dropdown">
+						<li><a href="/room-details">Room Details</a></li>
+						<li><a href="#">Deluxe Room</a></li>
+						<li><a href="#">Family Room</a></li>
+						<li><a href="#">Premium Room</a></li>
+					</ul></li>
+				<li><a href="/blog">News</a></li>
+				<li><a href="/contact">Contact</a></li>
+			</ul>
+		</nav>
+		<div id="mobile-menu-wrap"></div>
+		<div class="top-social">
+			<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+				class="fa fa-twitter"></i></a> <a href="#"><i
+				class="fa fa-tripadvisor"></i></a> <a href="#"><i
+				class="fa fa-instagram"></i></a>
+		</div>
+		<ul class="top-widget">
+			<li><i class="fa fa-phone"></i> 9812766528</li>
+			<li><i class="fa fa-envelope"></i> apinampa@gmail.com</li>
+		</ul>
+	</div>
+	<!-- Offcanvas Menu Section End -->
+
+	<!-- Header Section Begin -->
+	<header class="header-section">
+		<div class="top-nav">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6">
+						<ul class="tn-left">
+							<li><i class="fa fa-phone"></i> 9812766528</li>
+							<li><i class="fa fa-envelope"></i> apinampa@gmail.com</li>
+						</ul>
+					</div>
+					<div class="col-lg-6">
+						<div class="tn-right">
+							<div class="top-social">
+								<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+									class="fa fa-twitter"></i></a> <a href="#"><i
+									class="fa fa-tripadvisor"></i></a> <a href="#"><i
+									class="fa fa-instagram"></i></a>
+							</div>
+							<a href="#" class="bk-btn">Booking Now</a>
+							<div class="language-option">
+								<img src="/img/flag.jpg" alt=""> <span>EN <i
+									class="fa fa-angle-down"></i></span>
+								<div class="flag-dropdown">
+									<ul>
+										<li><a href="#">Zi</a></li>
+										<li><a href="#">Fr</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="menu-item">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-2">
+						<div class="logo">
+							<a href="/index"> <img
+								src="/img/Screenshot_13-5-2024_162059_app.logopony.com.jpeg"
+								alt="">
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-10">
+						<div class="nav-menu">
+							<nav class="mainmenu">
+								<ul>
+									<li class="active"><a href="/index">Home</a></li>
+									<li><a href="/rooms">Rooms</a></li>
+									<li><a href="/about-us">About Us</a></li>
+									<li><a href="/pages">Pages</a>
+										<ul class="dropdown">
+											<li><a href="/room-details">Room Details</a></li>
+											<li><a href="/blog-details">Blog Details</a></li>
+											<li><a href="#">Family Room</a></li>
+											<li><a href="#">Premium Room</a></li>
+										</ul></li>
+									<li><a href="/blog">News</a></li>
+									<li><a href="/contact">Contact</a></li>
+								</ul>
+							</nav>
+							<div class="nav-right search-switch">
+								<i class="icon_search"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- Header End -->
+	<!-- Hero Section Begin -->
+	<section class="hero-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="hero-text">
+						<h1>ApiNampa Hotel</h1>
+						<p>Explore Api Nampa Hotel, where comfort meets luxury. Enjoy
+							stunning views and top-notch service for an unforgettable stay.</p>
+						<a href="#" class="primary-btn">Discover Now</a>
+					</div>
+				</div>
+				<div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
+					<div class="booking-form">
+						<h3>Booking Your Hotel</h3>
+
+						<form action="/checkavailability" method="POST">
+							<div class="check-date">
+								<label for="date-in">Check In:</label> <input type="date"
+									class="date" id="date-in" name="checkindate">
+
+							</div>
+							<div class="check-date">
+								<label for="date-out">Check Out:</label> <input type="date"
+									class="date" id="date-out" name="checkoutdate">
+
+							</div>
+							<div class="check-date">
+								<label for="guest">Number Of peoples:</label> <input
+									type="number" class="guest" id="guest" name="numberofguests">
+
+							</div>
+							<div class="check-date">
+								<label for="guest">Number Of Rooms:</label> <input type="number"
+									class="rooms" id="rooms" name="numberofrooms">
+
+							</div>
+
+
+
+							<div class="select-option">
+								<label for="room">Room Type:</label> <select id="room"
+									name="numberofrooms">
+									<option selected disabled>Select Room Type</option>
+									<option th:each="roomtype:${roomtype}"
+										th:value="${roomtype.type}" th:text="${roomtype.type }"></option>
+								</select>
+							</div>
+
+							<input type="submit" value="Check Availability"
+								class="btn btn-success">
+
+							<!--   <button type="submit">Check Availability</button> -->
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="hero-slider owl-carousel">
+			<div class="hs-item set-bg" data-setbg="/img/hero/hero-1.jpg"></div>
+			<div class="hs-item set-bg" data-setbg="/img/hero/hero-2.jpg"></div>
+			<div class="hs-item set-bg" data-setbg="/img/hero/hero-3.jpg"></div>
+		</div>
+	</section>
+	<!-- Hero Section End -->
+
+
+
+
+
+
+	<!-- About Us Section Begin -->
+	<section class="aboutus-section spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="about-text">
+						<div class="section-title">
+							<span>About Us</span>
+							<h2>
+								ApiNampa <br /> Hotel
+							</h2>
+						</div>
+						<p class="f-para">Welcome to Api Nampa! Situated in the
+							picturesque Darchula district, our hotel offers a peaceful
+							retreat near Gokuleshwor Airport and the tranquil Chamaliya
+							River. Nestled between Baitadi and Darchula districts, Api Nampa
+							invites you to experience the best of both worlds – comfort and
+							natural beauty.</p>
+						<p class="s-para">When it's time to find the ideal place to
+							stay, whether it's a hotel, vacation rental, resort, apartment,
+							guest house, or even a tree house, look no further – we've got
+							you covered.</p>
+						<a href="#" class="primary-btn about-btn">Read More</a>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="about-pic">
+						<div class="row">
+							<div class="col-sm-6">
+								<img src="/img/about/about-1.jpg" alt="">
+							</div>
+							<div class="col-sm-6">
+								<img src="/img/about/about-2.jpg" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- About Us Section End -->
+
+	<!-- Services Section End -->
+	<section class="services-section spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-title">
+						<span>What We Do</span>
+						<h2>Discover Our Services</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-sm-6">
+					<div class="service-item">
+						<i class="flaticon-036-parking"></i>
+						<h4>Travel Plan</h4>
+						<p>Explore Baitadi and Darchula's wonders with Api Nampa's
+							travel plan. From the majestic Api Base Camp to historic sites
+							like Tinker's Fort, discover the best of these districts.</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<div class="service-item">
+						<i class="flaticon-033-dinner"></i>
+						<h4>Catering Service</h4>
+						<p>Experience our Catering Service, providing delicious food
+							for your events. Enjoy Api Nampa's easy and tasty catering
+							options for your special occasions.</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<div class="service-item">
+						<i class="flaticon-026-bed"></i>
+						<h4>Babysitting</h4>
+						<p>Relax knowing your children are cared for with our
+							Babysitting Service. Trust Api Nampa to provide attentive
+							childcare while you enjoy your stay.</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<div class="service-item">
+						<i class="flaticon-024-towel"></i>
+						<h4>Laundry</h4>
+						<p>Freshen up your clothes with our Laundry Service. Let Api
+							Nampa take care of your laundry needs so you can focus on
+							enjoying your stay hassle-free.</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<div class="service-item">
+						<i class="flaticon-044-clock-1"></i>
+						<h4>Hire Driver</h4>
+						<p>Simplify your travels with our Hire Driver Service. Let Api
+							Nampa arrange a reliable driver for your convenience, ensuring
+							safe and seamless transportation during your stay.</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<div class="service-item">
+						<i class="flaticon-012-cocktail"></i>
+						<h4>Bar & Drink</h4>
+						<p>Enjoy our Bar & Drink Service. Api Nampa offers a selection
+							of beverages to relax and unwind during your stay.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Services Section End -->
+
+	<!-- Home Room Section Begin -->
+	<section class="hp-room-section">
+		<div class="container-fluid">
+			<div class="hp-room-items">
+				<div class="row">
+
+					<div class="col-lg-3 col-md-6" th:each="rom:${roomlist}">
+						<div class="hp-room-item set-bg" th:data-setbg="${rom.image}">
+							<div class="hr-text">
+								<h3 th:text="${rom.type}"></h3>
+								<h2
+									th:text="${rom.price!= null ? rom.price+ ' Per Night' : 'Per Night'}"></h2>
+								<table>
+									<tbody>
+										<tr>
+											<td class="r-o">Size:</td>
+											<td th:text="${rom.size!= null ? rom.size+ ' Feet' : 'Feet'}"></td>
+										</tr>
+										<tr>
+											<td class="r-o">Capacity:</td>
+											<td
+												th:text="${rom.capacity != null ? rom.capacity + ' Max person' : 'Max person'}"></td>
+										</tr>
+										<tr>
+											<td class="r-o">Bed:</td>
+											<td th:text="${rom.bed!= null ? rom.bed+ ' Beds' : 'Beds'}"></td>
+										</tr>
+										<tr>
+											<td class="r-o">Services:</td>
+											<td th:text="${rom.service}"></td>
+										</tr>
+									</tbody>
+								</table>
+								<a href="#" class="primary-btn">More Details</a>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!-- Home Room Section End -->
+	<!-- Testimonial Section Begin -->
+	<section class="testimonial-section spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-title">
+						<span>Testimonials</span>
+						<h2>What Customers Say?</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2">
+					<div class="testimonial-slider owl-carousel">
+						<div class="ts-item">
+							<p>After a construction project took longer than expected, my
+								husband, my daughter and I needed a place to stay for a few
+								nights. As a Chicago resident, we know a lot about our city,
+								neighborhood and the types of housing options available and
+								absolutely love our vacation at Sona Hotel.</p>
+							<div class="ti-author">
+								<div class="rating">
+									<i class="icon_star"></i> <i class="icon_star"></i> <i
+										class="icon_star"></i> <i class="icon_star"></i> <i
+										class="icon_star-half_alt"></i>
+								</div>
+								<h5>- Alexander Vasquez</h5>
+							</div>
+							<img src="/img/testimonial-logo.png" alt="">
+						</div>
+						<div class="ts-item">
+							<p>After a construction project took longer than expected, my
+								husband, my daughter and I needed a place to stay for a few
+								nights. As a Chicago resident, we know a lot about our city,
+								neighborhood and the types of housing options available and
+								absolutely love our vacation at Sona Hotel.</p>
+							<div class="ti-author">
+								<div class="rating">
+									<i class="icon_star"></i> <i class="icon_star"></i> <i
+										class="icon_star"></i> <i class="icon_star"></i> <i
+										class="icon_star-half_alt"></i>
+								</div>
+								<h5>- Alexander Vasquez</h5>
+							</div>
+							<img src="/img/testimonial-logo.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Testimonial Section End -->
+
+	<!-- Blog Section Begin -->
+	<section class="blog-section spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-title">
+						<span>Hotel News</span>
+						<h2>Our Blog & Event</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="blog-item set-bg" data-setbg="/img/blog/blog-1.jpg">
+						<div class="bi-text">
+							<span class="b-tag">Travel Trip</span>
+							<h4>
+								<a href="#">Tremblant In Canada</a>
+							</h4>
+							<div class="b-time">
+								<i class="icon_clock_alt"></i> 15th April, 2019
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="blog-item set-bg" data-setbg="/img/blog/blog-2.jpg">
+						<div class="bi-text">
+							<span class="b-tag">Camping</span>
+							<h4>
+								<a href="#">Choosing A Static Caravan</a>
+							</h4>
+							<div class="b-time">
+								<i class="icon_clock_alt"></i> 15th April, 2019
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="blog-item set-bg" data-setbg="/img/blog/blog-3.jpg">
+						<div class="bi-text">
+							<span class="b-tag">Event</span>
+							<h4>
+								<a href="#">Copper Canyon</a>
+							</h4>
+							<div class="b-time">
+								<i class="icon_clock_alt"></i> 21th April, 2019
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8">
+					<div class="blog-item small-size set-bg"
+						data-setbg="/img/blog/blog-wide.jpg">
+						<div class="bi-text">
+							<span class="b-tag">Event</span>
+							<h4>
+								<a href="#">Trip To Iqaluit In Nunavut A Canadian Arctic
+									City</a>
+							</h4>
+							<div class="b-time">
+								<i class="icon_clock_alt"></i> 08th April, 2019
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="blog-item small-size set-bg"
+						data-setbg="/img/blog/blog-10.jpg">
+						<div class="bi-text">
+							<span class="b-tag">Travel</span>
+							<h4>
+								<a href="#">Traveling To Barcelona</a>
+							</h4>
+							<div class="b-time">
+								<i class="icon_clock_alt"></i> 12th April, 2019
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Blog Section End -->
+
+
+	<!-- Footer Section Begin -->
+	<footer class="footer-section">
+		<div class="container">
+			<div class="footer-text">
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="ft-about">
+							<div class="logo">
+								<a href="#"> <img
+									src="/img/Screenshot_13-5-2024_162059_app.logopony.com.jpeg"
+									alt="">
+								</a>
+							</div>
+							<p>
+								Discover the wonders of Apinampa and the historic Ninglashaini
+								Temple in Baitadi with us!<br />
+
+
+							</p>
+							<div class="fa-social">
+								<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+									class="fa fa-twitter"></i></a> <a href="#"><i
+									class="fa fa-tripadvisor"></i></a> <a href="#"><i
+									class="fa fa-instagram"></i></a> <a href="#"><i
+									class="fa fa-youtube-play"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 offset-lg-1">
+						<div class="ft-contact">
+							<h6>Contact Us</h6>
+							<ul>
+								<li>9812766528</li>
+								<li>apinampa@gmail.com</li>
+								<li>Gokuleshwor, Darchula</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 offset-lg-1">
+						<div class="ft-newslatter">
+							<h6>New latest</h6>
+							<p>Get the latest updates and offers.</p>
+							<form action="#" class="fn-form">
+								<input type="text" placeholder="Email">
+								<button type="submit">
+									<i class="fa fa-send"></i>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="copyright-option">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-7">
+						<ul>
+							<li><a href="#">Contact</a></li>
+							<li><a href="#">Terms of use</a></li>
+							<li><a href="#">Privacy</a></li>
+							<li><a href="#">Environmental Policy</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-5">
+						<div class="co-text">
+							<p>
+
+
+								Copyright ©
+								<script>document.write(new Date().getFullYear());</script>
+								All rights reserved. This was created for Hotel Apinampa by
+								Pallap.
+
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer Section End -->
+
+	<!-- Search model Begin -->
+	<div class="search-model">
+		<div class="h-100 d-flex align-items-center justify-content-center">
+			<div class="search-close-switch">
+				<i class="icon_close"></i>
+			</div>
+			<form class="search-model-form">
+				<input type="text" id="search-input" placeholder="Search here.....">
+			</form>
+		</div>
+	</div>
+	<!-- Search model end -->
+
+	<!-- Js Plugins -->
+	<script src="/js/jquery-3.3.1.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/jquery.magnific-popup.min.js"></script>
+	<script src="/js/jquery.nice-select.min.js"></script>
+	<script src="/js/jquery-ui.min.js"></script>
+	<script src="/js/jquery.slicknav.js"></script>
+	<script src="/js/owl.carousel.min.js"></script>
+	<script src="/js/main.js"></script>
+</body>
+
+</html>

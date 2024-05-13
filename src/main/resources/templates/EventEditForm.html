@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Details Form</title>
+<!-- Bootstrap CSS -->
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	rel="stylesheet">
+</head>
+<body>
+	<th:block th:insert="Header.html"></th:block>
+	<div class="container mt-5">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+
+				<h2>Event Details Form</h2>
+				
+				
+				<form enctype="multipart/form-data" method="post"
+					action="/update/event" th:object="${eventdetail}">
+					<div class="form-group">
+						<label for="type">Type Of Event</label> <input type="text"
+							th:field="*{event_type}" class="form-control" id="type"
+							name="event_type" placeholder="Enter Event Type">
+					</div>
+
+
+
+
+					<div class="form-group">
+						<label for="price">Location</label> <input type="text"
+							th:field="*{event_location}" class="form-control" id="price"
+							name="event_location" placeholder="Enter Location">
+					</div>
+
+					<div class="form-group">
+						<label for="size">Event Date</label> <input type="date"
+							step="0.01" class="form-control" id="size" name="size"
+							th:field="*{event_date}" placeholder="Enter Event Date">
+					</div>
+
+
+
+					<div class="form-group">
+						<label for="image">Image OF Event</label> <input type="file"
+							value="${event.event_image}" class="form-control-file" id="image"
+							name="event_image_update">
+					</div>
+
+
+
+
+
+
+
+
+
+
+
+
+					<div class="row p-2">
+						<div class="col-4"></div>
+						<div class="col-6">
+							<button type="submit" class="btn btn-primary">Update</button>
+
+
+
+
+						</div>
+
+
+					</div>
+					<input type="hidden" th:field="*{event_id}">
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap JS and dependencies (jQuery, Popper.js) -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+
+</body>
+</html>

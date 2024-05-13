@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Details Form</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<th:block th:insert="Header.html"></th:block>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+    <h1>[[${message}]]</h1>
+      <h2>Property Details Form</h2>
+      <form enctype="multipart/form-data" method="post" action="/addroom">
+        <div class="form-group">
+          <label for="type">Type Of Room</label>
+          <input type="text" class="form-control" id="type" name="type" placeholder="Enter property type">
+        </div>
+        <div class="form-group">
+          <label for="image">Image OF Room</label>
+          <input type="file" class="form-control-file" id="image" name="room_image">
+        </div>
+        <div class="form-group">
+          <label for="price">Price Per Night</label>
+          <input type="number" class="form-control" id="price" name="price" placeholder="Enter price">
+        </div>
+        <div class="form-group">
+          <label for="size">Size Of Room</label>
+          <input type="number" step="0.01" class="form-control" id="size" name="size" placeholder="Enter size">
+        </div>
+        <div class="form-group">
+          <label for="capacity">Capacity</label>
+          <input type="number" class="form-control" id="capacity" name="capacity" placeholder="Enter capacity">
+        </div>
+        <div class="form-group">
+          <label for="service">Service</label>
+          <input type="text" class="form-control" id="service" name="service" placeholder="Enter service details">
+        </div>
+        <div class="form-group">
+          <label for="bed">Number of Beds</label>
+          <input type="number" class="form-control" id="bed" name="bed" placeholder="Enter number of beds">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS and dependencies (jQuery, Popper.js) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
