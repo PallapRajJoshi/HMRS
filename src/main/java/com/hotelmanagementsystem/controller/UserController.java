@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.DigestUtils;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,7 @@ import com.hotelmanagementsystem.service.UserService;
 import com.hotelmanagementsystem.utils.MailUtils;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 @Controller
 public class UserController {
@@ -60,24 +62,32 @@ public class UserController {
 	}
 
 	@GetMapping("/signup")
-	public String getSignup() {
+	public String getSignup(Model model) {
+		 model.addAttribute("user", new User());
 		return "SignUp";
 	}
 
 	@PostMapping("/signup")
-	public String postSignUp(@ModelAttribute User user, Model m, HttpSession session) {
-		// encryption
-		user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
-		usr = user;
-		String emailV = usr.getEmail();
-		rNumber = generateRandomNumber(1000, 9999);
+	public String postSignUp(@Valid @ModelAttribute User user,BindingResult result, Model m, HttpSession session) {
+		
+		 if (result.hasErrors()) {
+	            return "SignUp"; // Return to the signup form if validation fails
+	        }else {
+	        	
+	    		// encryption
+	    		user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
+	    		usr = user;
+	    		String emailV = usr.getEmail();
+	    		rNumber = generateRandomNumber(1000, 9999);
 
-		mail.sendEmail(emailV, "From Api, Don't share this code With others", "Your Verification code is" + rNumber);
+	    		mail.sendEmail(emailV, "From Api, Don't share this code With others", "Your Verification code is" + rNumber);
 
-		m.addAttribute("code",
-				"An email containing the verification code has been sent to your email address. Please check your inbox and enter the code.");
+	    		m.addAttribute("code",
+	    				"An email containing the verification code has been sent to your email address. Please check your inbox and enter the code.");
 
-		return "EmailVerification";
+	    		return "EmailVerification";
+	        }
+	
 
 	}
 

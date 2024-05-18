@@ -13,6 +13,13 @@
 <!-- Bootstrap CSS -->
 
 
+<style>
+/* Style for error messages */
+.error-message {
+	color: red;
+	font-size: 14px; /* Adjust font size if needed */
+}
+</style>
 </head>
 <body>
 
@@ -28,32 +35,46 @@
 						<h1>[[${forgetPass}]]</h1>
 						<h2 class="form-title">Sign up</h2>
 						<form method="POST" class="register-form" id="register-form"
-							action="/signup">
+							action="/signup" th:object="${user}">
 							<div class="form-group p-2">
 								<label for="name"><i
 									class="zmdi zmdi-account material-icons-name"></i></label> <input
 									type="text" name="fname" id="name"
 									placeholder="Your First Name" />
+
+
+
+							</div>
+							<div class="error-message">
+								<span th:if="${#fields.hasErrors('fname')}" th:errors="*{fname}"></span>
 							</div>
 
 							<div class="form-group p2">
 								<label for="email"><i class="zmdi zmdi-email"></i></label> <input
-									type="text" name="lname" id="email"
-									placeholder="Your Last Name" />
+									type="text" name="lname" placeholder="Your Last Name" />
+
+
+							</div>
+							<div class="error-message">
+								<span th:if="${#fields.hasErrors('lname')}" th:errors="*{lname}"></span>
 							</div>
 
 							<div class="form-group p2">
-							
+
 								<label for="phone"><i class="zmdi zmdi-phone"></i></label> <input
 									type="text" name="phone" id="phone"
 									placeholder="Enter Your Phone" />
-							</div>
 
+
+							</div>
+							<div class="error-message">
+								<span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+							</div>
 
 
 							<div class="row p-2">
 								<div class="col-4 p-4">Gender</div>
-								
+
 								<div class="col-6">
 									<span><i class="zmdi zmdi-male"></i> Male</span> <input
 										type="radio" name="gender" class="form-control" value="Male">
@@ -62,8 +83,16 @@
 									<span><i class="zmdi zmdi-female"></i> Female</span> <input
 										type="radio" name="gender" class="form-control" value="Female">
 								</div>
+
+
+
+
 							</div>
-<hr>
+							<div class="error-message">
+								<span th:if="${#fields.hasErrors('gender')}"
+									th:errors="*{gender}"></span>
+							</div>
+							<hr>
 
 
 
@@ -75,12 +104,16 @@
 
 
 							<div class="form-group p2">
-							<div class="col-4 p-2">Date of birth</div>
+								<div class="col-4 p-2">Date of birth</div>
 								<label for="dob"><i class="zmdi zmdi-calendar"></i></label> <input
 									type="date" name="dob" id="dob"
 									placeholder="Enter Date of Birth" />
-							</div>
 
+
+							</div>
+							<div class="error-message">
+								<span th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></span>
+							</div>
 
 
 							<div class="row p-2">
@@ -108,13 +141,26 @@
 							<div class="form-group">
 								<label for="email"><i class="zmdi zmdi-email"></i></label> <input
 									type="text" name="email" id="email" placeholder="Your Email" />
+
+
+
+
+							</div>
+							<div class="error-message">
+								<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
 							</div>
 							<div class="form-group">
 								<label for="pass"><i class="zmdi zmdi-lock"></i></label> <input
 									type="password" name="password" id="pass"
 									placeholder="Password" />
-							</div>
 
+
+
+							</div>
+							<div class="error-message">
+								<span th:if="${#fields.hasErrors('password')}"
+									th:errors="*{password}"></span>
+							</div>
 							<div class="form-group form-button">
 								<input type="submit" name="signup" id="signup"
 									class="form-submit" value="Register" />

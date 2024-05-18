@@ -7,7 +7,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>ApiNampa | Hotel</title>
-
+<style>
+.error-message {
+	color: red;
+	font-size: 14px; /* Adjust font size if needed */
+}
+</style>
 <!-- Google Font -->
 <link
 	href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap"
@@ -65,13 +70,13 @@
 				<li class="active"><a href="/index">Home</a></li>
 				<li><a href="/rooms">Rooms</a></li>
 				<li><a href="/about-us">About Us</a></li>
-				<li><a href="/pages">Pages</a>
+				<!--  <li><a href="/pages">Pages</a>
 					<ul class="dropdown">
 						<li><a href="/room-details">Room Details</a></li>
 						<li><a href="#">Deluxe Room</a></li>
 						<li><a href="#">Family Room</a></li>
 						<li><a href="#">Premium Room</a></li>
-					</ul></li>
+					</ul></li> -->
 				<li><a href="/blog">News</a></li>
 				<li><a href="/contact">Contact</a></li>
 			</ul>
@@ -143,13 +148,13 @@
 									<li class="active"><a href="/index">Home</a></li>
 									<li><a href="/rooms">Rooms</a></li>
 									<li><a href="/about-us">About Us</a></li>
-									<li><a href="/pages">Pages</a>
-										<ul class="dropdown">
+									<!-- <li><a href="/pages">Pages</a>
+									  	<ul class="dropdown">
 											<li><a href="/room-details">Room Details</a></li>
 											<li><a href="/blog-details">Blog Details</a></li>
 											<li><a href="#">Family Room</a></li>
 											<li><a href="#">Premium Room</a></li>
-										</ul></li>
+										</ul></li> -->
 									<li><a href="/blog">News</a></li>
 									<li><a href="/contact">Contact</a></li>
 								</ul>
@@ -180,38 +185,51 @@
 					<div class="booking-form">
 						<h3>Booking Your Hotel</h3>
 
-						<form action="/checkavailability" method="POST">
+						<form action="/checkavailability" method="POST"
+							th:object="${validRoomBooking}">
 							<div class="check-date">
 								<label for="date-in">Check In:</label> <input type="date"
 									class="date" id="date-in" name="checkindate">
 
 							</div>
+							<div class="error-message" th:if="${#fields.hasErrors('checkindate')}"
+								th:errors="*{checkindate}"></div>
+
 							<div class="check-date">
 								<label for="date-out">Check Out:</label> <input type="date"
 									class="date" id="date-out" name="checkoutdate">
 
 							</div>
+							<div class="error-message" th:if="${#fields.hasErrors('checkoutdate')}"
+								th:errors="*{checkoutdate}"   ></div>
 							<div class="check-date">
 								<label for="guest">Number Of peoples:</label> <input
 									type="number" class="guest" id="guest" name="numberofguests">
 
 							</div>
+							<div class="error-message" th:if="${#fields.hasErrors('numberofguests')}"
+								th:errors="*{numberofguests}"></div>
+
 							<div class="check-date">
 								<label for="guest">Number Of Rooms:</label> <input type="number"
 									class="rooms" id="rooms" name="numberofrooms">
 
 							</div>
+							<div  class="error-message" th:if="${#fields.hasErrors('numberofrooms')}"
+								th:errors="*{numberofrooms}"></div>
 
 
 
 							<div class="select-option">
 								<label for="room">Room Type:</label> <select id="room"
-									name="numberofrooms">
+									name="roomtype">
 									<option selected disabled>Select Room Type</option>
-									<option th:each="roomtype:${roomtype}"
+									<option th:each="roomtype:${roomlist}"
 										th:value="${roomtype.type}" th:text="${roomtype.type }"></option>
 								</select>
 							</div>
+							<div class="error-message" th:if="${#fields.hasErrors('roomtype')}"
+								th:errors="*{roomtype}"></div>
 
 							<input type="submit" value="Check Availability"
 								class="btn btn-success">
@@ -222,6 +240,7 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="hero-slider owl-carousel">
 			<div class="hs-item set-bg" data-setbg="/img/hero/hero-1.jpg"></div>
 			<div class="hs-item set-bg" data-setbg="/img/hero/hero-2.jpg"></div>
@@ -405,7 +424,12 @@
 		</div>
 	</section>
 	<!-- Home Room Section End -->
+
+
+
+
 	<!-- Testimonial Section Begin -->
+	<!--  
 	<section class="testimonial-section spad">
 		<div class="container">
 			<div class="row">
@@ -456,6 +480,8 @@
 			</div>
 		</div>
 	</section>
+	
+	-->
 	<!-- Testimonial Section End -->
 
 	<!-- Blog Section Begin -->
@@ -469,20 +495,36 @@
 					</div>
 				</div>
 			</div>
+
+
+
+
+
+
+
+
+
+
+
+
 			<div class="row">
-				<div class="col-lg-4">
-					<div class="blog-item set-bg" data-setbg="/img/blog/blog-1.jpg">
+				<div class="col-lg-4" th:each="event:${eventlist}">
+					<div class="blog-item set-bg" th:data-setbg="${event.event_image}">
 						<div class="bi-text">
-							<span class="b-tag">Travel Trip</span>
+							<span class="b-tag" th:text="${event.event_type}"></span>
 							<h4>
-								<a href="#">Tremblant In Canada</a>
+								<a href="#" th:text="${event.event_location}"></a>
 							</h4>
 							<div class="b-time">
-								<i class="icon_clock_alt"></i> 15th April, 2019
+								<i class="icon_clock_alt"></i>
+								<samp
+									th:text="${#temporals.format(event.event_date, 'yyyy-MM-dd')}"></samp>
 							</div>
+
 						</div>
 					</div>
 				</div>
+
 				<div class="col-lg-4">
 					<div class="blog-item set-bg" data-setbg="/img/blog/blog-2.jpg">
 						<div class="bi-text">
@@ -614,7 +656,9 @@
 
 
 								Copyright ©
-								<script>document.write(new Date().getFullYear());</script>
+								<script>
+									document.write(new Date().getFullYear());
+								</script>
 								All rights reserved. This was created for Hotel Apinampa by
 								Pallap.
 

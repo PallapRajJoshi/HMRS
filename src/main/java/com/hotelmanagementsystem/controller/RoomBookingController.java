@@ -5,16 +5,19 @@ package com.hotelmanagementsystem.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hotelmanagementsystem.model.RoomBooking;
+import com.hotelmanagementsystem.service.EventService;
 import com.hotelmanagementsystem.service.RoomBookingService;
 import com.hotelmanagementsystem.service.RoomService;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 @Controller
 public class RoomBookingController {
@@ -22,33 +25,43 @@ public class RoomBookingController {
 	RoomBookingService booking;
 	@Autowired
 	RoomService roomser;
+	@Autowired
+	EventService eventservice;
 
 	//
 	@PostMapping("/checkavailability")
-	public String postAvailability(@ModelAttribute RoomBooking bookingroom, Model m, HttpSession session) {
-		
-		
-		
-		
-		
-	session.setAttribute("bookingdetail", bookingroom);
-		m.addAttribute("rList", roomser.getAllRoom());
-		return "AvailabilRoomList";
-		
-		
-		
-		
-		
+	public String postAvailability(@Valid @ModelAttribute("validRoomBooking") RoomBooking bookingroom,BindingResult result, Model m, HttpSession session) {
 
+		 if (result.hasErrors()) {
+			 m.addAttribute("roomlist", roomser.getAllRoom());
+	            m.addAttribute("eventlist", eventservice.getAllEvent());
+	            return "index";
+	        }
+		 else {
+			 
+			 
+			 session.setAttribute("bookingdetail", bookingroom);
+				m.addAttribute("rList", roomser.getAllRoom());
+				return "AvailabilRoomList";
+		 }
+			
+		
 	}
-
-	@GetMapping("/checkavailability")
-	public String getAvailability(@ModelAttribute RoomBooking bookingroom, Model m,HttpSession session) {
-		session.setAttribute("bookingdetail", bookingroom);
-		m.addAttribute("rList", roomser.getAllRoom());
-		return "AvailabilRoomList";
-
-	}
+//
+//	@GetMapping("/checkavailability")
+//	public String getAvailability(@Valid @ModelAttribute RoomBooking bookingroom,BindingResult result, Model m,HttpSession session) {
+//		
+//		 if (result.hasErrors()) {
+//	            return "index";
+//	            
+//	        }else {
+//	        	session.setAttribute("bookingdetail", bookingroom);
+//	    		m.addAttribute("rList", roomser.getAllRoom());
+//	    		return "AvailabilRoomList";
+//	        }
+//		
+//
+//	}
 
 	// booking
 	@PostMapping("/bookroom")
