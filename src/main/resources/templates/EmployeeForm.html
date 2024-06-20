@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>employee</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+
+</style>
+</head>
+<body>
+	<!--  <th:block th:insert="Header.html"></th:block> -->
+
+	<div class="container-fluid">
+
+		<div class="card">
+<div class="justify-content-left">
+			<a href="/backtoadminhome" class="btn btn-primary"> <i
+				class="fas fa-arrow-left"></i> Go Back
+			</a>
+		</div>
+			
+			<div class="card-header bg-primary text-center text-white">
+				<h5>Employee Form</h5>
+
+			</div>
+
+			<div class="card-body">
+
+				<form action="/employee" method="post">
+
+					<div class="row p-2">
+
+						<div class="col-4">First Name</div>
+						<div class="col-6">
+							<input type="text" name="fname" class="form-control">
+						</div>
+					</div>
+
+					<div class="row p-2">
+
+						<div class="col-4">Last Name</div>
+						<div class="col-6">
+							<input type="text" name="lname" class="form-control">
+						</div>
+					</div>
+
+					<div class="row p-2">
+
+						<div class="col-4">Gender</div>
+						<div class="col-6">
+							<input type="radio" name="gender" value="male"> Male <input
+								type="radio" name="gender" value="female"> Female
+						</div>
+					</div>
+
+					<div class="row p-2">
+
+						<div class="col-4">DoB</div>
+						<div class="col-6">
+							<input type="date" name="dob" class="form-control">
+						</div>
+					</div>
+
+
+
+
+					<div class="row p-2">
+
+						<div class="col-4">Department</div>
+						<div class="col-6">
+
+							<select name="department" class="form-control">
+
+								<option value="">Select</option>
+								<option th:each="d:${dlist}" th:value="${d.id}">[[${d.dpt_name}]]</option>
+
+							</select>
+
+						</div>
+					</div>
+
+					<div class="row p-2">
+
+						<div class="col-4">Post</div>
+						<div class="col-6">
+							<input type="text" name="post" class="form-control">
+						</div>
+					</div>
+
+					<div class="row p-2">
+
+						<div class="col-4">JoinDate</div>
+						<div class="col-6">
+							<input type="date" name="joinDate" class="form-control">
+						</div>
+					</div>
+
+					<div class="row p-2">
+
+						<div class="col-4">Salary</div>
+						<div class="col-6">
+							<input type="number" name="salary" class="form-control">
+						</div>
+					</div>
+
+					<div class="row p-2">
+
+						<div class="col-4">Email</div>
+						<div class="col-6">
+							<input type="email" name="email" class="form-control">
+						</div>
+					</div>
+
+					<div class="row p-2">
+
+						<div class="col-4">Phone</div>
+						<div class="col-6">
+							<input type="text" name="phone" class="form-control">
+						</div>
+					</div>
+
+
+					<div class="row p-2">
+
+						<div class="col-4">Country</div>
+						<div class="col-6">
+							<input type="text" name="address.country" class="form-control">
+						</div>
+					</div>
+
+					<div class="row p-2">
+
+						<div class="col-4">City</div>
+						<div class="col-6">
+							<input type="text" name="address.city" class="form-control">
+						</div>
+					</div>
+
+
+
+
+
+
+
+					<div class="row p-2">
+
+						<div class="col-4"></div>
+						<div class="col-6">
+							<input type="submit" value="Add" class="btn btn-success">
+						</div>
+					</div>
+
+				</form>
+
+			</div>
+
+
+			<div class="card-footer text-center bg-warning ">copyright@2023</div>
+		</div>
+
+	</div>
+
+
+
+
+</body>
+</html>

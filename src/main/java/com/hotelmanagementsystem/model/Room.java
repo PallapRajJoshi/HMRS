@@ -22,4 +22,5 @@ public class Room {
 	private int capacity;
 	private String service;
 	private int bed;
+	private int numberofroom;
 }

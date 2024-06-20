@@ -35,6 +35,15 @@
 </head>
 
 <body>
+<!-- 
+<div class="toggle-btns">
+					<div class="marquee-container">
+						<div class="marquee">
+							<h1>Welcome To Hotel Api-Nampa Admin Dashboard</h1>
+						</div>
+					</div>
+				</div>
+				 -->
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
@@ -45,14 +54,14 @@
 	<div class="canvas-open">
 		<i class="icon_menu"></i>
 	</div>
-	<div class="offcanvas-menu-wrapper">
+	 <div class="offcanvas-menu-wrapper">
 		<div class="canvas-close">
 			<i class="icon_close"></i>
 		</div>
 		<div class="search-icon  search-switch">
 			<i class="icon_search"></i>
 		</div>
-		<div class="header-configure-area">
+		 <div class="header-configure-area">
 			<div class="language-option">
 				<img src="/img/flag.jpg" alt=""> <span>EN <i
 					class="fa fa-angle-down"></i></span>
@@ -62,21 +71,15 @@
 						<li><a href="#">Fr</a></li>
 					</ul>
 				</div>
-			</div>
+			</div> 
 			<a href="#" class="bk-btn">Booking Now</a>
-		</div>
+		</div> 
 		<nav class="mainmenu mobile-menu">
 			<ul>
 				<li class="active"><a href="/index">Home</a></li>
 				<li><a href="/rooms">Rooms</a></li>
 				<li><a href="/about-us">About Us</a></li>
-				<!--  <li><a href="/pages">Pages</a>
-					<ul class="dropdown">
-						<li><a href="/room-details">Room Details</a></li>
-						<li><a href="#">Deluxe Room</a></li>
-						<li><a href="#">Family Room</a></li>
-						<li><a href="#">Premium Room</a></li>
-					</ul></li> -->
+				
 				<li><a href="/blog">News</a></li>
 				<li><a href="/contact">Contact</a></li>
 			</ul>
@@ -106,6 +109,7 @@
 							<li><i class="fa fa-envelope"></i> apinampa@gmail.com</li>
 						</ul>
 					</div>
+					  
 					<div class="col-lg-6">
 						<div class="tn-right">
 							<div class="top-social">
@@ -127,6 +131,8 @@
 							</div>
 						</div>
 					</div>
+					
+					
 				</div>
 			</div>
 		</div>
@@ -372,7 +378,7 @@
 			<div class="hp-room-items">
 				<div class="row">
 
-					<div class="col-lg-3 col-md-6" th:each="rom:${roomlist}">
+					<div class="col-lg-4 col-md-6" th:each="rom:${roomlist}">
 						<div class="hp-room-item set-bg" th:data-setbg="${rom.image}">
 							<div class="hr-text">
 								<h3 th:text="${rom.type}"></h3>
@@ -428,61 +434,7 @@
 
 
 
-	<!-- Testimonial Section Begin -->
-	<!--  
-	<section class="testimonial-section spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="section-title">
-						<span>Testimonials</span>
-						<h2>What Customers Say?</h2>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-8 offset-lg-2">
-					<div class="testimonial-slider owl-carousel">
-						<div class="ts-item">
-							<p>After a construction project took longer than expected, my
-								husband, my daughter and I needed a place to stay for a few
-								nights. As a Chicago resident, we know a lot about our city,
-								neighborhood and the types of housing options available and
-								absolutely love our vacation at Sona Hotel.</p>
-							<div class="ti-author">
-								<div class="rating">
-									<i class="icon_star"></i> <i class="icon_star"></i> <i
-										class="icon_star"></i> <i class="icon_star"></i> <i
-										class="icon_star-half_alt"></i>
-								</div>
-								<h5>- Alexander Vasquez</h5>
-							</div>
-							<img src="/img/testimonial-logo.png" alt="">
-						</div>
-						<div class="ts-item">
-							<p>After a construction project took longer than expected, my
-								husband, my daughter and I needed a place to stay for a few
-								nights. As a Chicago resident, we know a lot about our city,
-								neighborhood and the types of housing options available and
-								absolutely love our vacation at Sona Hotel.</p>
-							<div class="ti-author">
-								<div class="rating">
-									<i class="icon_star"></i> <i class="icon_star"></i> <i
-										class="icon_star"></i> <i class="icon_star"></i> <i
-										class="icon_star-half_alt"></i>
-								</div>
-								<h5>- Alexander Vasquez</h5>
-							</div>
-							<img src="/img/testimonial-logo.png" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-	-->
-	<!-- Testimonial Section End -->
+
 
 	<!-- Blog Section Begin -->
 	<section class="blog-section spad">
@@ -525,61 +477,10 @@
 					</div>
 				</div>
 
-				<div class="col-lg-4">
-					<div class="blog-item set-bg" data-setbg="/img/blog/blog-2.jpg">
-						<div class="bi-text">
-							<span class="b-tag">Camping</span>
-							<h4>
-								<a href="#">Choosing A Static Caravan</a>
-							</h4>
-							<div class="b-time">
-								<i class="icon_clock_alt"></i> 15th April, 2019
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="blog-item set-bg" data-setbg="/img/blog/blog-3.jpg">
-						<div class="bi-text">
-							<span class="b-tag">Event</span>
-							<h4>
-								<a href="#">Copper Canyon</a>
-							</h4>
-							<div class="b-time">
-								<i class="icon_clock_alt"></i> 21th April, 2019
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-8">
-					<div class="blog-item small-size set-bg"
-						data-setbg="/img/blog/blog-wide.jpg">
-						<div class="bi-text">
-							<span class="b-tag">Event</span>
-							<h4>
-								<a href="#">Trip To Iqaluit In Nunavut A Canadian Arctic
-									City</a>
-							</h4>
-							<div class="b-time">
-								<i class="icon_clock_alt"></i> 08th April, 2019
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="blog-item small-size set-bg"
-						data-setbg="/img/blog/blog-10.jpg">
-						<div class="bi-text">
-							<span class="b-tag">Travel</span>
-							<h4>
-								<a href="#">Traveling To Barcelona</a>
-							</h4>
-							<div class="b-time">
-								<i class="icon_clock_alt"></i> 12th April, 2019
-							</div>
-						</div>
-					</div>
-				</div>
+				
+			
+				
+				
 			</div>
 		</div>
 	</section>

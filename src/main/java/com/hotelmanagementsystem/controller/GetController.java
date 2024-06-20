@@ -4,11 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
+import com.hotelmanagementsystem.model.Contact;
+import com.hotelmanagementsystem.model.Customer;
 import com.hotelmanagementsystem.model.RoomBooking;
 import com.hotelmanagementsystem.service.EventService;
 import com.hotelmanagementsystem.service.RoomService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class GetController {
@@ -77,7 +80,20 @@ public class GetController {
 	}
 
 	@GetMapping("/contact")
-	public String contact() {
-		return "contact";
+	public String contact(Model m,HttpSession session) {
+		 Contact contact = new Contact(); // Assuming Contact is your form-backing bean
+	        m.addAttribute("contact", contact);
+		Customer customer=(Customer) session.getAttribute("cactiveuser");
+		if (session.getAttribute("cactiveuser") == null || session.getAttribute("cactiveuser").equals("")) {
+			
+			return "contact";
+		}else {
+			
+			
+			m.addAttribute("name",customer.getCfname()+" "+customer.getClname() );
+			m.addAttribute("email",customer.getCemail());
+			return "contact";
+		}
+		
 	}
 }

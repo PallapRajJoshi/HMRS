@@ -66,33 +66,54 @@ public class RoomController {
 	// Room List COntroller
 
 	@GetMapping("/listroom")
-	public String getListRoom(Model model) {
-
+	public String getListRoom(Model model,HttpSession session) {
+		if (session.getAttribute("activeuser") == null || session.getAttribute("activeuser").equals("")) {
+			model.addAttribute("messagelogin", "Login First");
+			return "LoginForm";
+		}
+			else {
 		model.addAttribute("rList", roomser.getAllRoom());
 
 		return "ListOfRoom";
-	}
+	}}
 
 	// delete room controller
 
 	@GetMapping("/roomdetail/delete")
-	public String deleteRoom(@RequestParam int id) {
+	public String deleteRoom(@RequestParam int id ,Model model,HttpSession session) {
+		if (session.getAttribute("activeuser") == null || session.getAttribute("activeuser").equals("")) {
+			model.addAttribute("messagelogin", "Login First");
+			return "LoginForm";
+		}
+			else {
+		
 		roomser.deleteRoom(id);
 		return "redirect:/listroom";
 	}
-
+	}
 	// Edit Room detail Controller
 	@GetMapping("/roomdetail/edit")
-	public String editRoom(@RequestParam int id, Model m) {
+	public String editRoom(@RequestParam int id, Model m,HttpSession session) {
+		if (session.getAttribute("activeuser") == null || session.getAttribute("activeuser").equals("")) {
+			m.addAttribute("messagelogin", "Login First");
+			return "LoginForm";
+		}
+			else {
 
 		m.addAttribute("roomModel", roomser.getRoomById(id));
 
 		return "EditRoomForm";
 	}
-
+	}
 //update room details
 	@PostMapping("/update/room")
-	public String updateRoomPost(@RequestParam("image_room_update") MultipartFile img, @ModelAttribute Room room, Model m) {
+	public String updateRoomPost(@RequestParam("image_room_update") MultipartFile img, @ModelAttribute Room room, Model m,HttpSession session) {
+		if (session.getAttribute("activeuser") == null || session.getAttribute("activeuser").equals("")) {
+			m.addAttribute("messagelogin", "Login First");
+			return "LoginForm";
+		}
+			else {
+		
 		
 		if (!img.isEmpty()) {
 
@@ -113,7 +134,10 @@ public class RoomController {
 			return "redirect:/listroom";
 
 		} else {
-			return "Hello";
+			roomser.updateRoom(room);
+			m.addAttribute("updated", "Room Details Updated");
+			return "redirect:/listroom";
 		}
 	}
+}
 }

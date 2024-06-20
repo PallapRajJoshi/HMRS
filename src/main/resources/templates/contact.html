@@ -65,8 +65,8 @@
 				<li class="active"><a href="/index">Home</a></li>
 				<li><a href="/rooms">Rooms</a></li>
 				<li><a href="/about-us">About Us</a></li>
-				
-				
+
+
 				<!-- <li><a href="/pages">Pages</a>
 					<ul class="dropdown">
 						<li><a href="/room-details">Room Details</a></li>
@@ -144,14 +144,7 @@
 									<li><a href="/index">Home</a></li>
 									<li><a href="/rooms">Rooms</a></li>
 									<li><a href="/about-us">About Us</a></li>
-									<!--   <li><a href="/pages">Pages</a>
-										<ul class="dropdown">
-											<li><a href="/room-details">Room Details</a></li>
-											<li><a href="/blog-details">Blog Details</a></li>
-											<li><a href="#">Family Room</a></li>
-											<li><a href="#">Premium Room</a></li>
-										</ul></li>
-										 -->
+
 									<li><a href="/blog">News</a></li>
 									<li class="active"><a href="/contact">Contact</a></li>
 								</ul>
@@ -197,16 +190,27 @@
 					</div>
 				</div>
 				<div class="col-lg-7 offset-lg-1">
-					<form action="#" class="contact-form">
+					<form action="/feedback" class="contact-form" method="post"
+						th:object="${contact}">
 						<div class="row">
 							<div class="col-lg-6">
-								<input type="text" placeholder="Your Name">
+								<input type="text" placeholder="Your Name" name="name"
+									th:value="${name != null ? name : ''}" readonly>
 							</div>
 							<div class="col-lg-6">
-								<input type="text" placeholder="Your Email">
+								<input type="text" placeholder="Your Email" name="email"
+									th:value="${email != null ? email : ''}" readonly>
 							</div>
 							<div class="col-lg-12">
-								<textarea placeholder="Your Message"></textarea>
+
+								
+									
+
+
+
+								<textarea placeholder="Your Message" name="message" th:field="*{message}"></textarea>
+								 <div class="text-danger" th:if="${#fields.hasErrors('message')}" th:errors="*{message}"></div>
+								<br>
 								<button type="submit">Submit Now</button>
 							</div>
 						</div>

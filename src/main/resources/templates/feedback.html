@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Feedback</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .feedback-container {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .feedback-card {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .card-body p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container feedback-container">
+        <div class="row">
+            <div class="col-md-12">
+            <a href="/backtoadminhome" class="btn btn-primary"> <i
+				class="fas fa-arrow-left"></i> Go Back
+			</a>
+                <h2>User Feedback</h2>
+                <!-- Iterate over contact info -->
+                <div th:each="contact : ${contactinfo}" class="feedback-card">
+                    <div class="card-header">
+                        <strong th:text="${contact.name}"></strong>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Email: </strong><span th:text="${contact.email}"></span></p>
+                        <p><strong>Message: </strong><span th:text="${contact.message}"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

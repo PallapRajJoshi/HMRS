@@ -37,6 +37,7 @@
 							<th>Price</th>
 							<th>Size</th>
 							<th>Image</th>
+							<th>Number Of Room Available</th>
 
 							<th>Action</th>
 						</tr>
@@ -52,6 +53,7 @@
 							<td>[[${room.price}]]</td>
 							<td>[[${room.size}]]</td>
 							<td>[[${room.image}]]</td>
+							<td>[[${room.numberofroom}]]</td>
 							<td><a th:href="@{/bookroom(id=${room.id})}"><input
 									type="submit" value="Book Room" class="btn btn-success"></a></td>
 

@@ -1,0 +1,226 @@
+// Black, White Colors
+$white: #ffffff;
+$black: #000000;
+
+// Light, Dark Colors
+$light-color: #dadeea;
+$dark-color: #616265;
+$font-grey: #5a5a5a;
+$mute-color: #48516b;
+
+// Body Colors
+$body-bg: #f5f6fa;
+$body-bg-light: #bcd0f7;
+$body-bg-dark: #0c1425;
+$body-bg-darker: #e4dacd;
+
+$card-bg: #ffffff;
+$card-bg-light: #4b546f;
+$card-bg-lighter: #2c3b5a;
+$card-bg-dark: #e6e8f1;
+$card-border-bg: #e1e5f1;
+$card-border-bg-dark: #e0d9cc;
+$shadow-color: #e5e9ec;
+$light-bg: #eff1f5;
+$dark-bg: #262b31;
+
+// Border Colors
+$border-bg: #e4e7f2;
+$border-dark-bg: #d2b999;
+$form-border: #cfd1d8;
+$form-border-dark: #9fa1a7;
+$input-bg: #ffffff;
+
+// Font Colors
+$font-color: #2e323c;
+$font-color-dark: #1a243a;
+$font-color-light: #9fa8b9;
+
+// Primary, Secondary Colors
+$primary-color: #007ae1;
+$primary-light: #42a8ff;
+$primary-dark: #0074d6;
+$secondary-color: #ff3e61;
+$secondary-light: #ff7890;
+$secondary-dark: #ff244c;
+
+// Header Color
+$header-bg: #f6f8fa;
+$header-shadow: #cfd7da;
+$header-bg-dark: #e6ebf1;
+$header-color: #ecb76c;
+$header-border: #d9dde0;
+
+// Navbar Color
+$navbar-bg: #2e343c;
+$navbar-text: #dfe5ec;
+$navbar-active-bg: #f4f5fb;
+
+// Sidebar Color
+$sidebar-bg: #ffffff;
+$sidebar-bg-dark: #f5f6fa;
+$sidebar-brand: #212121;
+$sidebar-text: #4d4d4d;
+$sidebar-shadow: #d3d7e9;
+$sidebar-text-light: #595959;
+$sidebar-icon: #aab3c3;
+$sidebar-hover-bg: #f5f6fa;
+$sidebar-active-bg: #007ae1;
+$sidebar-submenu-hover: #f5f6fa;
+$sidebar-icon-bg: #1f2328;
+
+// Table Colors
+$table-header: #2f71c1;
+$table-border: #e0e3ec;
+$table-border-light: #e3e8ef;
+$table-body: #ffffff;
+$table-body-dark: #161f33;
+$table-hover: #f5f6fa;
+$table-color: #bcd0f7;
+$table-dark: #5fa22d;
+$table-dark-border: #7ac146;
+
+// Colors
+$red: #ff3e3e;
+$dark-red: #ff1e1e;
+$light-red: #ff3434;
+$green: #00bb42;
+$dark-green: #00ab3c;
+$light-green: #c0d64a;
+$yellow: #ffbf05;
+$dark-yellow: #f9b900;
+$light-yellow: #f0d619;
+$blue: #007ae1;
+$dark-blue: #0074d6;
+$darker-blue: #0065fd;
+$light-blue: #00d4fd;
+$pink: #f77eb9;
+$orange: #f18024;
+$dark-orange: #f18024;
+$brown: #af772b;
+
+
+
+
+$m-primary: #1646d6;
+$m-primary-dark: #1149ef;
+$m-primary-font-color: #2357f1;
+
+$m-secondary: #d00d4c;
+$m-secondary-dark: #e80e55;
+$m-secondary-font-color: #e61c5e;
+
+$m-blue: #0047b1;
+$m-blue-dark: #0055d4;
+$m-blue-font-color: #0063f7;
+
+$m-red: #d20000;
+$m-red-dark: #da0000;
+$m-red-font-color: #b50000;
+
+$m-yellow: #f1ae07;
+$m-yellow-dark: #ffb806;
+$m-yellow-font-color: #e8a600;
+
+$m-green: #008e18;
+$m-green-dark: #009a1a;
+$m-green-font-color: #009619;
+
+// Social Colors
+$facebook: #3B5998;
+$twitter: #55ACEE;
+$linkedin: #007BB5;
+$gplus: #E02F2F;
+
+
+
+
+
+
+
+
+/*************** 2.Mixins ***************/
+
+// Gradients
+@mixin linear-gradient($fromColor, $toColor) {
+	background-color: $toColor; /* Fallback Color */
+	background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(right, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background-image: -moz-linear-gradient(right, $fromColor, $toColor); /* FF3.6 */
+	background-image: -ms-linear-gradient(right, $fromColor, $toColor); /* IE10 */
+	background-image: -o-linear-gradient(right, $fromColor, $toColor); /* Opera 11.10+ */
+	background-image: linear-gradient(right, $fromColor, $toColor);
+}
+@mixin linear-gradient-tb($top, $bottom) {
+	background: $top; /* Old browsers */
+	background: -moz-linear-gradient(top, $top 0%, $bottom 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, $top 0%,$bottom 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, $top 0%,$bottom 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, $top 0%,$bottom 100%); /* IE10+ */
+	background: linear-gradient(to bottom, $top 0%,$bottom 100%); /* W3C */
+}
+@mixin linear-gradient-tmb($startColor: #ffffff, $midColor: #eeeeee, $colorStop: 50%, $endColor: #cccccc) {
+	background-color: mix($midColor, $endColor, 80%);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), color-stop($colorStop, $midColor), to($endColor));
+	background-image: -webkit-linear-gradient($startColor, $midColor $colorStop, $endColor);
+	background-image: -moz-linear-gradient(top, $startColor, $midColor $colorStop, $endColor);
+	background-image: -o-linear-gradient($startColor, $midColor $colorStop, $endColor);
+	background-image: linear-gradient($startColor, $midColor $colorStop, $endColor);
+	background-repeat: no-repeat;
+}
+
+// Transition
+@mixin transition($transition-property, $transition-time, $method) {
+	-webkit-transition: $transition-property $transition-time $method;
+	-moz-transition: $transition-property $transition-time $method;
+	-ms-transition: $transition-property $transition-time $method;
+	-o-transition: $transition-property $transition-time $method;
+	transition: $transition-property $transition-time $method;
+}
+
+// Box Sizing
+@mixin box-sizing($string){
+	-webkit-box-sizing: $string;
+	-moz-box-sizing: $string;
+	box-sizing: $string;
+}
+
+// Box Shadow
+@mixin box-shadow($off-y, $off-x, $blur, $color){
+	-moz-box-shadow: $off-y $off-x $blur $color; /* FF3.5+ */
+	-webkit-box-shadow: $off-y $off-x $blur $color; /* Saf3.0+, Chrome */
+	box-shadow: $off-y $off-x $blur $color; /* Opera 10.5, IE9 */
+}
+@mixin box-shadow-inset($top, $left, $blur, $color, $inset:"") {
+	-webkit-box-shadow: $top $left $blur $color $inset;
+	-moz-box-shadow: $top $left $blur $color $inset;
+	box-shadow: $top $left $blur $color $inset;
+}
+
+// Border Radius
+@mixin roundedCorners($size) {
+	-webkit-border-radius: $size + px;
+	-moz-border-radius: $size + px;
+	border-radius: $size + px;
+}
+@mixin roundedCornersAll($size1, $size2, $size3, $size4) {
+	-webkit-border-radius: $size1 $size2 $size3 $size4;
+	-moz-border-radius: $size1 $size2 $size3 $size4;
+	border-radius: $size1 $size2 $size3 $size4;
+}
+
+// Transform
+@mixin transform($args){
+	-webkit-transform: $args;
+	-moz-transform: $args;
+	-o-transform: $args;
+	-ms-transform: $args;
+	transform: $args;
+}
+
+// Opacity
+@mixin opacity($opacity) {
+	opacity: $opacity / 100;
+	filter: alpha(opacity=$opacity);
+}

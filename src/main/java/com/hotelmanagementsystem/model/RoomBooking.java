@@ -42,5 +42,9 @@ public class RoomBooking {
 	private String numberofrooms;
 	@NotEmpty(message = "Room type is required")
 	private String roomtype;
+	private String cusername;
+	private String cemail;
+	private boolean accepted;
+	
 
 }

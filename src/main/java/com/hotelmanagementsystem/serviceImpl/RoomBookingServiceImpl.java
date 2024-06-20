@@ -2,6 +2,7 @@ package com.hotelmanagementsystem.serviceImpl;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,9 +29,9 @@ RoomBookingRepository bookroom;
 		
 	}
 	@Override
-	public void acceptBooking(int id) {
-		// TODO Auto-generated method stub
+	public RoomBooking acceptBooking(int id) {
 		
+		return bookroom.findById(id).orElse(null);
 	}
 
 }
